@@ -7,16 +7,26 @@ import {
   SfIconFavorite,
   SfIconPerson,
   SfInput,
-  SfIconSearch
+  SfIconSearch,
 } from '@storefront-ui/react';
 
 import Image from 'next/image'
 import NavBarTopCatg from './NavBarTopCatg';
+import SideBar from '@/Components/SideBar'
 
 
 export default function NavBarTop() {
   const [inputValue, setInputValue] = useState('');
 
+  const [isOpen, setisOpen] = useState(false);
+  const toggle =()=>{
+    setisOpen(!isOpen);
+  }
+
+const toggle1 =()=>{
+    setisOpen(false);
+  }
+  
   const actionItems = [
     {
       icon: <SfIconFavorite size='lg' className=' text-gray-600' />,
@@ -44,8 +54,8 @@ export default function NavBarTop() {
   };
 
   return (
-    <header className="flex justify-center w-full py-2 px-4 lg:py-5 lg:px-6 bg-white border-b border-neutral-200">
-      <div className="flex flex-wrap lg:flex-nowrap items-center flex-row md:justify-start h-full max-w-[1536px] w-full justify-evenly max-lg:ml-5 max-lg:mr-0 ml-20 mr-20">
+    <header className="flex justify-center w-full py-2 px-4 lg:py-5 lg:px-6 bg-white border-b border-neutral-200 flex-row-reverse relative">
+      <div className="flex flex-wrap lg:flex-nowrap items-center flex-row md:justify-start h-full max-w-[1536px] w-full justify-evenly max-lg:ml-5 max-lg:mr-0 ml-20 mr-20 " onClick={toggle}>
 
         <a
           href="#"
@@ -61,12 +71,14 @@ export default function NavBarTop() {
           />
         </a>
 
+
         <form
           role="search"
-          className=" flex order-last lg:order-3 mt-2 lg:mt-0 pb-2 lg:pb-0 ml-20 w-[50%] max-lg:w-full "
+          className=" flex order-last lg:order-3 mt-2 lg:mt-0 pb-2 lg:pb-0 ml-20 w-[50%] max-lg:w-full gap-5"
           onSubmit={search}
         >
-
+          {/* <SfIconMenu className='hidden w-8 h-8 mt-2 cursor-pointer max-lg:block' /> */}
+          <SideBar/>
           <SfInput
             value={inputValue}
             type="search"
@@ -107,6 +119,7 @@ export default function NavBarTop() {
         </form>
 
 
+
         <nav className="flex-1 flex justify-end lg:order-last lg:ml-4">
           <div className="flex flex-row flex-nowrap gap-3 max-lg:gap-0">
             {
@@ -129,6 +142,7 @@ export default function NavBarTop() {
           </div>
         </nav>
       </div>
+
     </header>
   );
 }
