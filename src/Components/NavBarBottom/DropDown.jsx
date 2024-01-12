@@ -18,7 +18,7 @@ const DropDown = (props) => {
       className='hover:underline underline-offset-[-40px] decoration-green-600 decoration-2'
       >
 
-      <ul className=" flex  flex-col  bg-gray-100 w-60 text-left justify-between p-3 mt-[-7px] gap-2" onMouseOver={toggle} onMouseOut={close}>
+      <ul className=" flex  flex-col bg-white w-60 text-left justify-between p-3 mt-[-7px] gap-2 z-10 relative" onMouseOver={toggle} onMouseOut={close}>
         {
           props.details.item.map((item)=>{
             return <li className='cursor-pointer hover:text-green-600'>{item}</li>

@@ -15,10 +15,12 @@ export default function SideBar() {
   return (
     <div className='hidden max-lg:block '>
       <SfIconMenu onClick={open} className='w-9 h-9 cursor-pointer '/>
+
+      {/* MAIN SIDE BAR */}
       <SfModal
         open={isOpen}
         onClose={close}
-        className=" w-3/5 absolute left-0 mt-[-2px] ml-0 rounded-none h-screen ease-in-out duration-300"
+        className=" w-[55%] fixed left-0 mt-[-2px] ml-0 rounded-none h-screen ease-in-out duration-300 z-10"
       >
         <header>
           <SfButton square variant="tertiary" className="absolute right-2 top-2" onClick={close}>

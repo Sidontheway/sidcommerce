@@ -27,7 +27,7 @@ const pages = {
 }
 const Page = () => {
   return (
-    <div className='flex justify-evenly bg-gray-100 max-lg:hidden'>
+    <div className='flex justify-evenly bg-white max-lg:hidden'>
       <DropDown details = {ShopByDepartment}/>
       <DropDown details = {home}/>
       <h1 className='text-lg font-semibold p-5'>Shop</h1>
