@@ -33,12 +33,12 @@ const TopCatgeory = () => {
 
                     details.map((item) => {
                         return (
-                            <div className=' text-center border-2 cursor-pointer hover:border-green-600  resize-none'>
-                                <div className='m-3 text-center'>
-                                    <Image src={item.image} height={300}
-                                        width={300} />
+                            <div className=' text-center border-2 cursor-pointer hover:border-green-600  resize-none  hover:text-blue-600'>
+                                <div className='m-2 flex justify-center'>
+                                    <Image src={item.image} height={200}
+                                        width={200} />
                                 </div>
-                                <h1>{item.name}</h1>
+                                <h1 className='mb-3 '>{item.name}</h1>
                             </div>
                         )
                     })
