@@ -20,7 +20,7 @@ export default function SideBar() {
       <SfModal
         open={isOpen}
         onClose={close}
-        className=" w-[55%] fixed left-0 mt-[-2px] ml-0 rounded-none h-screen ease-in-out duration-300 z-10"
+        className=" w-[70%] fixed left-0 mt-[-2px] ml-0 rounded-none h-screen ease-in-out duration-300 z-10"
       >
         <header>
           <SfButton square variant="tertiary" className="absolute right-2 top-2" onClick={close}>
