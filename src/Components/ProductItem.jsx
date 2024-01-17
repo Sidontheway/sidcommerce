@@ -1,0 +1,50 @@
+import Image from "next/image";
+import {  SfRating, SfCounter, SfLink, SfIconShoppingCart, SfIconFavorite } from '@storefront-ui/react';
+import VisibilityOutlinedIcon from '@mui/icons-material/VisibilityOutlined';
+import { SfTooltip } from '@storefront-ui/react';
+
+export default function ProductItem(props) {
+    return (
+        <div className="border border-neutral-200 rounded-md hover:shadow-lg min-w-[250px] max-w-[250px] group">
+            <div className="relative flex flex-col justify-items-center">
+                <SfLink href="#" className="block">
+                    <Image
+                        src={props.details.image}
+                        width={200}
+                        height={350}
+                    />
+                </SfLink>
+                <div
+                    className="mt-[-70px] p-2 pt-5 bg-white  justify-center gap-x-7 hidden group-hover:flex z-[2px] relative h-[70px] "
+                >
+                    <SfTooltip label="Favorite">
+                        <SfIconFavorite size='lg' className=' text-gray-800 cursor-pointer rounded-full  hover:bg-green-600 hover:text-white p-1'/>
+                    </SfTooltip>
+
+                    <SfTooltip label="Preview">
+                        <VisibilityOutlinedIcon fontSize="large" className=' text-gray-800 cursor-pointer rounded-full  hover:bg-green-600 hover:text-white p-1'/>
+                    </SfTooltip>
+
+                    <SfTooltip label="Add To Cart">
+                        <SfIconShoppingCart size="lg"  className='text-gray-800 cursor-pointer rounded-full  hover:bg-green-600 hover:text-white p-1'/>
+                    </SfTooltip>
+
+
+                </div>
+            </div>
+            <div className="p-4  flex flex-col gap-2">
+                <SfLink href="#" variant="secondary" className="no-underline text-md font-semibold">
+                    {props.details.name}
+                </SfLink>
+                <div className="flex items-center pt-1">
+                    <SfRating size="xs" value={props.details.rating} max={5} />
+
+                    <SfLink href="#" variant="secondary" className="pl-1 no-underline">
+                        <SfCounter size="xs">{13}</SfCounter>
+                    </SfLink>
+                </div>
+                <span className="block pb-2 font-semibold typography-text-lg">${props.details.price}</span>
+            </div>
+        </div>
+    );
+}
