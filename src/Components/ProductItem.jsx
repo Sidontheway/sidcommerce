@@ -5,12 +5,12 @@ import { SfTooltip } from '@storefront-ui/react';
 
 export default function ProductItem(props) {
     return (
-        <div className="border border-neutral-200 rounded-md hover:shadow-lg min-w-[250px] max-w-[250px] group">
+        <div className=" rounded-md hover:shadow-lg w-[250px]  group hover:border hover:border-neutral-200 max-sm:w-[350px]">
             <div className="relative flex flex-col justify-items-center">
                 <SfLink href="#" className="block">
                     <Image
                         src={props.details.image}
-                        width={200}
+                        width={400}
                         height={350}
                     />
                 </SfLink>

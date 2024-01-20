@@ -6,7 +6,7 @@ import { SfRating } from '@storefront-ui/react';
 
 import CountdownTimer from "@/Components/Counter"
 
-const targetDate = '2024-01-18T23:45:59'; // Replace this with your target date
+const targetDate = '2024-01-25T23:45:59'; // Replace this with your target date
 
 export function Carousel_home() {
     var items = [

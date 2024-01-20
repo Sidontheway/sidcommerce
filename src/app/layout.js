@@ -5,6 +5,7 @@ import NavBarTop from '@/Components/NavBarTop/NavBarTop'
 import NavBarBottomMain from "@/Components/NavBarBottom/NavBarBottomMain"
 import Footer from '@/Components/Footer'
 import Home from '@/Pages/Home'
+import FiltersSidepanel from '@/Components/ProductPage/Filters'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata = {
@@ -18,7 +19,8 @@ export default function RootLayout({ children }) {
       <body className={inter.className}>
         <NavBarTop/>
         <NavBarBottomMain/>
-        <Home/>
+        {/* <Home/> */}
+        <FiltersSidepanel/>
         <Footer/>
         {children}
         
