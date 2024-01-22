@@ -2,6 +2,7 @@
 
 import React from 'react'
 import FilterSection from './FilterSection';
+import ProductSection from './ProductSection';
 
 const Filters = () => {
   return (
@@ -15,6 +16,9 @@ const Filters = () => {
 
       <div className='grid grid-cols-8 py-8 gap-10'>
         <FilterSection />
+        <div className='col-span-6'>
+          <ProductSection/>
+        </div>
       </div>
 
     </main>

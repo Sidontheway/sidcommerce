@@ -34,10 +34,10 @@ export default function ProductItem(props) {
             </div>
             <div className="p-4  flex flex-col gap-2">
                 <SfLink href="#" variant="secondary" className="no-underline text-md font-semibold">
-                    {props.details.name}
+                    {props.details.title}
                 </SfLink>
                 <div className="flex items-center pt-1">
-                    <SfRating size="xs" value={props.details.rating} max={5} />
+                    <SfRating size="xs" value={3} max={5} />
 
                     <SfLink href="#" variant="secondary" className="pl-1 no-underline">
                         <SfCounter size="xs">{13}</SfCounter>

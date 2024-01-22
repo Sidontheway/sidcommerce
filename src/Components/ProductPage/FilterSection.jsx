@@ -2,9 +2,9 @@ import { useSearchParams, useRouter } from 'next/navigation';
 import React, { useEffect, useState } from 'react'
 
 const colors = ["Red", "Green", "Blue", "Black", "Brown", "Pink"];
-const categeories = ["Men Cloth", "Women Cloth"];
+const categeories = ["MilkAndCreams ","Fruits","Vegetables","Ocean Food","ButtersAndEggs","LampsAndLighting","FreshMeats","SeedsAndSpices"]
 const sizes = ["S", "M", "L", "XL"];
-const sortingOrder = ["Newest", "Price Low - High", "Prixe High - Low"];
+const sortingOrder = ["Newest", "Price Low - High", "Price High - Low"];
 
 const filterOptions = [
     {
@@ -71,32 +71,41 @@ const FilterSection = () => {
         const value = e.target.value;
         const type = e.target.type;
 
-        let selectedQueries = SelectedQueries;
+        let selectedQueries = { ...SelectedQueries }; // Make a copy of the state
 
         if (selectedQueries[name]) {
             if (type === "radio") {
                 selectedQueries[name] = [value];
-            }
-            else if (selectedQueries[name].includes(value)) {
+            } else if (selectedQueries[name].includes(value)) {
                 selectedQueries[name] = selectedQueries[name].filter(
                     (query) => query !== value
                 );
                 if (!checkValidQuery(selectedQueries[name])) {
                     delete selectedQueries[name];
-                } else {
-                    selectedQueries[name].push(value);
                 }
+            } else {
+                selectedQueries[name].push(value);
             }
-            else if (selectedQueries) {
+        } else {
+            if (type === "radio") {
+                selectedQueries[name] = [value];
+            } else {
                 selectedQueries[name] = [value];
             }
-            router.push(`/?${convertValidStringQueries(selectedQueries)}`, {
-                scroll: false,
-            });
         }
+
+        router.push(`/?${convertValidStringQueries(selectedQueries)}`, {
+            scroll: false,
+        });
+    };
+
+    const ClearAllFilters =()=>{
+        SetSelectedQueries({});
+        router.push("/");
+        window.scrollTo(0,0);
     }
 
-    const isChecked = (id,option)=>{
+    const isChecked = (id, option) => {
         return (
             Boolean(SelectedQueries[id] && SelectedQueries[id].includes(option.toLowerCase()))
         )
@@ -104,23 +113,23 @@ const FilterSection = () => {
     return (
         <div className='col-span-2 space-y-6 sticky top-12 h-fit'>
             {
-                filterOptions.map(({id,title,type,options})=>{
+                filterOptions.map(({ id, title, type, options }) => {
                     return (
-                        <div className="border-b pb-4" key = {id}>
-                            <p className="font-medium mb-4">{title}</p>
+                        <div className="border-b pb-4" key={id}>
+                            <p className="font-semibold text-lg mb-4">{title}</p>
                             <div className="space-y-2">
                                 {
-                                    options.map((value)=>{
-                                        return(
-                                            <CheckboxAndRadioGroup key = {value}>
+                                    options.map((value) => {
+                                        return (
+                                            <CheckboxAndRadioGroup key={value}>
                                                 <CheckboxAndRadioItem
-                                                   type = {type}
-                                                   name = {id}
-                                                   id = {value.toLowerCase().trim()}
-                                                   label = {value}
-                                                   value = {value.toLowerCase().trim()}
-                                                   checked = {isChecked(id,value)}
-                                                   onChange = {handleSelectFilterOptions}
+                                                    type={type}
+                                                    name={id}
+                                                    id={value.toLowerCase().trim()}
+                                                    label={value}
+                                                    value={value.toLowerCase().trim()}
+                                                    checked={isChecked(id, value)}
+                                                    onChange={handleSelectFilterOptions}
                                                 />
                                             </CheckboxAndRadioGroup>
                                         )
@@ -131,21 +140,27 @@ const FilterSection = () => {
                     )
                 })
             }
+            <div>
+                <button 
+                   className='w-32 h-10 bg-blue-400 hover:bg-blue-500 rounded-md text-normal font-semibold p-1 text-white'
+                   onClick={ClearAllFilters}
+                >Clear All Filters</button>
+            </div>
         </div>
     )
 }
 
 
-function CheckboxAndRadioGroup({children}){
+function CheckboxAndRadioGroup({ children }) {
     return <div className='flex items-center gap-4'>{children}</div>
 }
-function CheckboxAndRadioItem({id,label,...props}){
-    return(
+function CheckboxAndRadioItem({ id, label, ...props }) {
+    return (
         <>
-          <input id = {id} className='w-4 h-4 ' {...props} />
-          <label htmlFor={id} className='text-sm'>
-            {label}
-          </label>
+            <input id={id} className='w-5 h-5 cursor-pointer' {...props} />
+            <label htmlFor={id} className='text-md font-medium cursor-pointer'>
+                {label}
+            </label>
         </>
     )
 }
