@@ -1,9 +1,21 @@
 import Image from "next/image";
-import {  SfRating, SfCounter, SfLink, SfIconShoppingCart, SfIconFavorite } from '@storefront-ui/react';
+import { useState } from "react";
+import {
+    SfRating,
+    SfCounter,
+    SfLink,
+    SfIconShoppingCart,
+    SfIconFavorite,
+    useDisclosure
+} from '@storefront-ui/react';
 import VisibilityOutlinedIcon from '@mui/icons-material/VisibilityOutlined';
 import { SfTooltip } from '@storefront-ui/react';
+import Modal from "./Modal";
+
 
 export default function ProductItem(props) {
+    const { isOpen, open, close } = useDisclosure({ initialValue: false });
+
     return (
         <div className=" rounded-md hover:shadow-lg w-[250px]  group hover:border hover:border-neutral-200 max-sm:w-[350px]">
             <div className="relative flex flex-col justify-items-center">
@@ -18,18 +30,17 @@ export default function ProductItem(props) {
                     className="mt-[-70px] p-2 pt-5 bg-white  justify-center gap-x-7 hidden group-hover:flex z-[2px] relative h-[70px] "
                 >
                     <SfTooltip label="Favorite">
-                        <SfIconFavorite size='lg' className=' text-gray-800 cursor-pointer rounded-full  hover:bg-green-600 hover:text-white p-1'/>
+                        <SfIconFavorite size='lg' className=' text-gray-800 cursor-pointer rounded-full  hover:bg-green-600 hover:text-white p-1' />
                     </SfTooltip>
 
                     <SfTooltip label="Preview">
-                        <VisibilityOutlinedIcon fontSize="large" className=' text-gray-800 cursor-pointer rounded-full  hover:bg-green-600 hover:text-white p-1'/>
+                        <VisibilityOutlinedIcon fontSize="large" onClick={open}
+                            className=' text-gray-800 cursor-pointer rounded-full  hover:bg-green-600 hover:text-white p-1' />
                     </SfTooltip>
 
                     <SfTooltip label="Add To Cart">
-                        <SfIconShoppingCart size="lg"  className='text-gray-800 cursor-pointer rounded-full  hover:bg-green-600 hover:text-white p-1'/>
+                        <SfIconShoppingCart size="lg" className='text-gray-800 cursor-pointer rounded-full  hover:bg-green-600 hover:text-white p-1' />
                     </SfTooltip>
-
-
                 </div>
             </div>
             <div className="p-4  flex flex-col gap-2">
@@ -45,6 +56,10 @@ export default function ProductItem(props) {
                 </div>
                 <span className="block pb-2 font-semibold typography-text-lg">${props.details.price}</span>
             </div>
+            <div className="w-[50%]">
+                <Modal productid={props.details.id} isOpen={isOpen} close={close} open={open} />
+            </div>
+
         </div>
     );
 }

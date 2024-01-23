@@ -6,6 +6,7 @@ import NavBarBottomMain from "@/Components/NavBarBottom/NavBarBottomMain"
 import Footer from '@/Components/Footer'
 import Home from '@/Pages/Home'
 import Filters from '@/Components/ProductPage/MainPage'
+import Modal from '@/Components/Modal'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata = {
@@ -21,6 +22,7 @@ export default function RootLayout({ children }) {
         <NavBarBottomMain/>
         {/* <Home/> */}
          <Filters/>
+         {/* <Modal/> */}
         {/* <Footer/> */}
         {children}
         

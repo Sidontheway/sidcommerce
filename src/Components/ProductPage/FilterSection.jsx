@@ -2,7 +2,7 @@ import { useSearchParams, useRouter } from 'next/navigation';
 import React, { useEffect, useState } from 'react'
 
 const colors = ["Red", "Green", "Blue", "Black", "Brown", "Pink"];
-const categeories = ["MilkAndCreams ","Fruits","Vegetables","Ocean Food","ButtersAndEggs","LampsAndLighting","FreshMeats","SeedsAndSpices"]
+const categeories = ["All","MilkAndCreams","Fruits","Vegetables","Ocean Food","ButtersAndEggs","LampsAndLighting","FreshMeats","SeedsAndSpices"]
 const sizes = ["S", "M", "L", "XL"];
 const sortingOrder = ["Newest", "Price Low - High", "Price High - Low"];
 
@@ -16,7 +16,7 @@ const filterOptions = [
         id: "categories",
         title: "Categories",
         options: categeories,
-        type: "checkbox"
+        type: "radio"
     }, {
         id: "colors",
         title: "Colors",
