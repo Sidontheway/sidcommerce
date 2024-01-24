@@ -3,7 +3,7 @@ import React from 'react'
 import { convertStringToQueriesObject } from './FilterSection';
 
 import { products } from '../product';
-import ProductItem from '../ProductItem';
+import ProductItem from './ProductItem';
 
 const isAvailable = (arr1,arr2)=>{
   if(!arr1 || !arr2 ){

@@ -12,7 +12,7 @@ import TopCatgeory from '@/Components/TopCatgeory';
 import Banner from '@/Components/Banner'
 import { Carousels } from '@/Components/Carousel'
 import { Carousel_home } from '@/Components/Carousel_home'
-import ProductItem from "@/Components/ProductItem"
+import ProductItem from "@/Components/ProductPage/ProductItem"
 import Testimonial from '@/Components/Testimonial';
 import Carousel from 'react-material-ui-carousel';
 import NewsSection from '@/Components/NewsSection';

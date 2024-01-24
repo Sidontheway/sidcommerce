@@ -9,9 +9,9 @@ import {
 } from '@storefront-ui/react';
 import VisibilityOutlinedIcon from '@mui/icons-material/VisibilityOutlined';
 import { SfTooltip } from '@storefront-ui/react';
-import Modal from "./Modal";
+import Modal from "../Modal";
 import { useState } from "react";
-import AlertButton from "./ProductPage/AlertButton";
+import AlertButton from "./AlertButton";
 
 
 export default function ProductItem(props) {
