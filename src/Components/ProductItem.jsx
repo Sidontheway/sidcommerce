@@ -1,5 +1,4 @@
 import Image from "next/image";
-import { useState } from "react";
 import {
     SfRating,
     SfCounter,
@@ -11,13 +10,33 @@ import {
 import VisibilityOutlinedIcon from '@mui/icons-material/VisibilityOutlined';
 import { SfTooltip } from '@storefront-ui/react';
 import Modal from "./Modal";
+import { useState } from "react";
+import AlertButton from "./ProductPage/AlertButton";
 
 
 export default function ProductItem(props) {
     const { isOpen, open, close } = useDisclosure({ initialValue: false });
 
+    const [isClick, setisClick] = useState(false);
+    const handleClick = () => {
+        setisClick(true);
+        console.log(isClick);
+        setTimeout(() => {
+            setisClick(false);
+        }, 1500);
+    }
+
+
     return (
         <div className=" rounded-md hover:shadow-lg w-[250px]  group hover:border hover:border-neutral-200 max-sm:w-[350px]">
+
+            <div className=" w-full z-40 fixed">
+                {
+                    isClick ? <AlertButton itemName={props.details.title} /> : ""
+                }
+
+            </div>
+
             <div className="relative flex flex-col justify-items-center">
                 <SfLink href="#" className="block">
                     <Image
@@ -39,7 +58,10 @@ export default function ProductItem(props) {
                     </SfTooltip>
 
                     <SfTooltip label="Add To Cart">
-                        <SfIconShoppingCart size="lg" className='text-gray-800 cursor-pointer rounded-full  hover:bg-green-600 hover:text-white p-1' />
+                        <SfIconShoppingCart size="lg" onClick={handleClick}
+                            className='text-gray-800 cursor-pointer rounded-full  hover:bg-green-600 hover:text-white p-1' />
+
+
                     </SfTooltip>
                 </div>
             </div>
@@ -59,7 +81,7 @@ export default function ProductItem(props) {
             <div className="w-[50%]">
                 <Modal productid={props.details.id} isOpen={isOpen} close={close} open={open} />
             </div>
-
+            {/* for Add to Cart Pop up messgae */}
         </div>
     );
 }

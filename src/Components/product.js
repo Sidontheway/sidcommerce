@@ -45,8 +45,8 @@ export const products = [
     },
     {
         id:5,
-        title:"Shirt",
-        desc:"This is a description text.",
+        title:"Pineapple",
+        desc:"Discover the epitome of tropical indulgence with our farm-fresh, premium pineapples. These succulent fruits are meticulously selected at their peak ripeness, ensuring a burst of natural sweetness and flavor in every bite.",
         price:90,
         colors:["red","pink","brown"],
         sizes:["s","m","xl"],
