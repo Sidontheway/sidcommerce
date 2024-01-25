@@ -9,6 +9,12 @@ import {
 const DropDown = (props) => {
 
   const { isOpen, toggle, close } = useDisclosure();
+
+  function Handle_link(inputString) {
+    let processedString = inputString.replace(/\s/g, '').toLowerCase();
+    processedString = processedString.replace(/&/g, 'and');
+    return processedString;
+}
   
   return (
     <SfDropdown
@@ -20,8 +26,10 @@ const DropDown = (props) => {
 
       <ul className=" flex  flex-col bg-white w-60 text-left justify-between p-3 mt-[-7px] gap-2 z-10 relative" onMouseOver={toggle} onMouseOut={close}>
         {
-          props.details.item.map((item)=>{
-            return <li className='cursor-pointer hover:text-green-600'>{item}</li>
+          props.details.item.map((item)=>{ 
+            return <li className='cursor-pointer hover:text-green-600'>
+              <a href={`/product?categories=${Handle_link(item)}`}>{item}</a>
+              </li>
 
           })
         }

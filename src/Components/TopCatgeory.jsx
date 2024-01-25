@@ -3,11 +3,11 @@ import Image from "next/image"
 
 const details = [
     {
-        name: "Milks & Creams",
+        name: "Milk & Creams",
         image: "/Assests/TopCategeory/cat-1.png"
     },
     {
-        name: "Friuts",
+        name: "Fruits",
         image: "/Assests/TopCategeory/cat-2.jpg.png"
     }, {
         name: "Vegetables",
@@ -25,21 +25,30 @@ const details = [
 ]
 
 const TopCatgeory = () => {
+
+    function Handle_link(inputString) {
+        let processedString = inputString.replace(/\s/g, '').toLowerCase();
+        processedString = processedString.replace(/&/g, 'and');
+        return processedString;
+    }
+
     return (
         <div className=' m-10'>
             <h1 className='text-xl font-bold '>Top Categories Of The Month</h1>
-            <div className='grid grid-flow-row-dense grid-cols-6 gap-10 m-5 max-lg:grid-cols-3 max-sm:grid-cols-1'> 
+            <div className='grid grid-flow-row-dense grid-cols-6 gap-10 m-5 max-lg:grid-cols-3 max-sm:grid-cols-1'>
                 {
 
                     details.map((item) => {
                         return (
-                            <div className=' text-center border-2 cursor-pointer hover:border-green-600  resize-none  hover:text-blue-600'>
-                                <div className='m-2 flex justify-center'>
-                                    <Image src={item.image} height={200}
-                                        width={200} />
+                            <a href={`/product?categories=${Handle_link(item.name)}`}>
+                                <div className=' text-center border-2 cursor-pointer hover:border-green-600  resize-none  hover:text-blue-600'>
+                                    <div className='m-2 flex justify-center'>
+                                        <Image src={item.image} height={200}
+                                            width={200} />
+                                    </div>
+                                    <h1 className='mb-3 '>{item.name}</h1>
                                 </div>
-                                <h1 className='mb-3 '>{item.name}</h1>
-                            </div>
+                            </a>
                         )
                     })
                 }

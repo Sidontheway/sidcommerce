@@ -5,6 +5,7 @@ import {
     SfLink,
     SfIconShoppingCart,
     SfIconFavorite,
+    SfIconFavoriteFilled,
     useDisclosure
 } from '@storefront-ui/react';
 import VisibilityOutlinedIcon from '@mui/icons-material/VisibilityOutlined';
@@ -15,8 +16,10 @@ import AlertButton from "./AlertButton";
 
 
 export default function ProductItem(props) {
+    // FOR MODAL WORKING
     const { isOpen, open, close } = useDisclosure({ initialValue: false });
 
+    // WORKING OF ALERT BUTTON / SHOPPING CART
     const [isClick, setisClick] = useState(false);
     const handleClick = () => {
         setisClick(true);
@@ -24,6 +27,12 @@ export default function ProductItem(props) {
         setTimeout(() => {
             setisClick(false);
         }, 1500);
+    }
+
+    // WORKING OF FAVORITE ICON
+    const [isFavClick,setisFavClick] =useState(false);
+    const handleFavClick = ()=>{
+        setisFavClick(!isFavClick);
     }
 
 
@@ -49,7 +58,13 @@ export default function ProductItem(props) {
                     className="mt-[-70px] p-2 pt-5 bg-white  justify-center gap-x-7 hidden group-hover:flex z-[2px] relative h-[70px] "
                 >
                     <SfTooltip label="Favorite">
-                        <SfIconFavorite size='lg' className=' text-gray-800 cursor-pointer rounded-full  hover:bg-green-600 hover:text-white p-1' />
+                        {
+                            isFavClick ? (
+                                <SfIconFavoriteFilled size='lg' className=' text-gray-800 cursor-pointer rounded-full  hover:bg-green-600 hover:text-white p-1 ' onClick={handleFavClick} />
+                            ):(
+                                <SfIconFavorite size='lg' className=' text-gray-800 cursor-pointer rounded-full  hover:bg-green-600 hover:text-white p-1 ' onClick={handleFavClick} />
+                            )
+                        }
                     </SfTooltip>
 
                     <SfTooltip label="Preview">

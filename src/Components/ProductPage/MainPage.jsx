@@ -14,7 +14,7 @@ const Filters = () => {
         </p>
       </div>
 
-      <div className='grid grid-cols-8 py-8 gap-10'>
+      <div className='grid grid-cols-8 py-8 gap-10 max-lg:flex max-lg:flex-col-reverse'>
         <FilterSection />
         <div className='col-span-6'>
           <ProductSection/>

@@ -61,7 +61,7 @@ export default function Modal(props) {
                     role="alertdialog"
                     aria-labelledby={headingId}
                     aria-describedby={descriptionId}
-                    className="w-full md:max-w-4xl z-40"
+                    className="w-full md:max-w-4xl z-40 "
                 >
                     <header>
                         <SfButton square variant="tertiary" className="absolute right-2 top-2" onClick={props.close}>
@@ -104,7 +104,7 @@ export default function Modal(props) {
                         </div>
                     </div>
                     {
-                        isClick ? <div className='relative  top-[-100px]'><AlertButton itemName = {filtered_product[0].title}/></div> : ""
+                        isClick ? <div><AlertButton itemName = {filtered_product[0].title}/></div> : ""
 
                     }
                 </SfModal>

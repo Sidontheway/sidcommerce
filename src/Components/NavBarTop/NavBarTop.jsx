@@ -30,13 +30,13 @@ const toggle1 =()=>{
   const actionItems = [
     {
       icon: <SfIconFavorite size='lg' className=' text-gray-600' />,
-      label: '',
+      label: 'fav_icon',
       ariaLabel: 'Wishlist',
       role: 'button',
     },
     {
       icon: <SfIconShoppingCart size='lg' className=' text-gray-600' />,
-      label: '',
+      label: 'shopping_cart',
       ariaLabel: 'Cart',
       role: 'button',
     },
@@ -134,6 +134,11 @@ const toggle1 =()=>{
                   slotPrefix={actionItem.icon}
 
                 >
+                  {
+                    actionItem.label === 'fav_icon' || actionItem.label === "shopping_cart" ?(<span className='text-white font-semibold text-sm bg-green-600 rounded-full h-5 w-5 ml-[-27px] mb-[-30px]'>
+                      5
+                    </span>):null
+                  }
                   {actionItem.role === 'login' && (
                     <p className="hidden xl:inline-flex whitespace-nowrap text-md font-extrabold text-black">{actionItem.label}</p>
                   )}

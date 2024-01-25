@@ -94,14 +94,14 @@ const FilterSection = () => {
             }
         }
 
-        router.push(`/?${convertValidStringQueries(selectedQueries)}`, {
+        router.push(`product/?${convertValidStringQueries(selectedQueries)}`, {
             scroll: false,
         });
     };
 
     const ClearAllFilters =()=>{
         SetSelectedQueries({});
-        router.push("/");
+        router.push("/product");
         window.scrollTo(0,0);
     }
 
@@ -111,7 +111,7 @@ const FilterSection = () => {
         )
     }
     return (
-        <div className='col-span-2 space-y-6 sticky top-12 h-fit'>
+        <div className='col-span-2 space-y-6 sticky top-12 h-fit bg-gray-50 p-5'>
             {
                 filterOptions.map(({ id, title, type, options }) => {
                     return (
