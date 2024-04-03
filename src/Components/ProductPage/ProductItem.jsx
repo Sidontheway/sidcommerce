@@ -10,6 +10,8 @@ import {
 } from '@storefront-ui/react';
 import VisibilityOutlinedIcon from '@mui/icons-material/VisibilityOutlined';
 import { SfTooltip } from '@storefront-ui/react';
+import { useRouter } from 'next/navigation'
+
 import Modal from "../Modal";
 import { useState } from "react";
 import AlertButton from "./AlertButton";
@@ -30,14 +32,16 @@ export default function ProductItem(props) {
     }
 
     // WORKING OF FAVORITE ICON
-    const [isFavClick,setisFavClick] =useState(false);
-    const handleFavClick = ()=>{
+    const [isFavClick, setisFavClick] = useState(false);
+    const handleFavClick = () => {
         setisFavClick(!isFavClick);
     }
 
+    const router = useRouter();
+
 
     return (
-        <div className=" rounded-md hover:shadow-lg w-[250px]  group hover:border hover:border-neutral-200 max-sm:w-[350px]">
+        <div className=" rounded-md hover:shadow-lg w-[250px]  group hover:border hover:border-neutral-200 max-sm:w-[350px]" >
 
             <div className=" w-full z-40 fixed">
                 {
@@ -46,8 +50,14 @@ export default function ProductItem(props) {
 
             </div>
 
-            <div className="relative flex flex-col justify-items-center">
-                <SfLink href="#" className="block">
+            <div className="relative flex flex-col justify-items-center cursor-pointer">
+                <SfLink className="block"
+                    onClick={() => {
+                        router.push(`/product_details/${props.details.id}`)
+
+                    }}
+
+                >
                     <Image
                         src={props.details.image}
                         width={400}
@@ -61,7 +71,7 @@ export default function ProductItem(props) {
                         {
                             isFavClick ? (
                                 <SfIconFavoriteFilled size='lg' className=' text-gray-800 cursor-pointer rounded-full  hover:bg-green-600 hover:text-white p-1 ' onClick={handleFavClick} />
-                            ):(
+                            ) : (
                                 <SfIconFavorite size='lg' className=' text-gray-800 cursor-pointer rounded-full  hover:bg-green-600 hover:text-white p-1 ' onClick={handleFavClick} />
                             )
                         }

@@ -6,7 +6,7 @@ import {SfIconCall} from "@storefront-ui/react"
 import DropDown from './DropDown'
 
 const ShopByDepartment = {
-  title :"Shop By Department ",
+  title :"Shop By Department",
   item:[
     "New Arrivals","Best Sellers","Special Offers ","Milk & Creams ","Fruits","Vegetables","Ocean Food","Butters & Eggs","Lamps & Lighting","Fresh Meats","Seeds & Spices"
   ]

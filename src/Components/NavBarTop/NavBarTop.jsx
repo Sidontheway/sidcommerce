@@ -23,9 +23,7 @@ export default function NavBarTop() {
     setisOpen(!isOpen);
   }
 
-const toggle1 =()=>{
-    setisOpen(false);
-  }
+
   
   const actionItems = [
     {
@@ -58,7 +56,7 @@ const toggle1 =()=>{
       <div className="flex flex-wrap lg:flex-nowrap items-center flex-row md:justify-start h-full max-w-[1536px] w-full justify-evenly max-lg:ml-5 max-lg:mr-0 ml-20 mr-20 " onClick={toggle}>
 
         <a
-          href="#"
+          href="/"
           aria-label="SF Homepage"
           className="inline-block mr-4 focus-visible:outline focus-visible:outline-offset focus-visible:rounded-sm shrink-0"
         >
