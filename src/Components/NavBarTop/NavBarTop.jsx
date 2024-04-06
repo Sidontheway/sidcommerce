@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from 'react';
+import { useState , useEffect } from 'react';
 import {
   SfButton,
   SfIconShoppingCart,
@@ -19,12 +19,29 @@ export default function NavBarTop() {
   const [inputValue, setInputValue] = useState('');
 
   const [isOpen, setisOpen] = useState(false);
-  const toggle =()=>{
+  const toggle = () => {
     setisOpen(!isOpen);
   }
 
+  // Scrolly bar check
+  const [stickyClass, setStickyClass] = useState('sticky');
 
-  
+  useEffect(() => {
+    window.addEventListener('scroll', stickNavbar);
+
+    return () => {
+      window.removeEventListener('scroll', stickNavbar);
+    };
+  }, []);
+
+  const stickNavbar = () => {
+    if (window !== undefined) {
+      let windowHeight = window.scrollY;
+      windowHeight > 175 ? setStickyClass('fixed top-0 left-0 z-40') : setStickyClass('sticky');
+    }
+  }
+
+
   const actionItems = [
     {
       icon: <SfIconFavorite size='lg' className=' text-gray-600' />,
@@ -46,13 +63,9 @@ export default function NavBarTop() {
     },
   ];
 
-  const search = (event) => {
-    event.preventDefault();
-    alert(`Successfully found 10 results for ${inputValue}`);
-  };
 
   return (
-    <header className="flex justify-center w-full py-2 px-4 lg:py-5 lg:px-6 bg-white border-b border-neutral-200 flex-row-reverse relative">
+    <header className={`flex justify-center w-full py-2 px-4 lg:py-5 lg:px-6 bg-white border-b border-neutral-200 flex-row-reverse ${stickyClass}`}>
       <div className="flex flex-wrap lg:flex-nowrap items-center flex-row md:justify-start h-full max-w-[1536px] w-full justify-evenly max-lg:ml-5 max-lg:mr-0 ml-20 mr-20 " onClick={toggle}>
 
         <a
@@ -73,10 +86,10 @@ export default function NavBarTop() {
         <form
           role="search"
           className=" flex order-last lg:order-3 mt-2 lg:mt-0 pb-2 lg:pb-0 ml-20 w-[50%] max-lg:w-full gap-5"
-          onSubmit={search}
+
         >
           {/* <SfIconMenu className='hidden w-8 h-8 mt-2 cursor-pointer max-lg:block' /> */}
-          <SideBar/>
+          <SideBar />
           <SfInput
             value={inputValue}
             type="search"
@@ -133,9 +146,9 @@ export default function NavBarTop() {
 
                 >
                   {
-                    actionItem.label === 'fav_icon' || actionItem.label === "shopping_cart" ?(<span className='text-white font-semibold text-sm bg-green-600 rounded-full h-5 w-5 ml-[-27px] mb-[-30px]'>
-                      5
-                    </span>):null
+                    actionItem.label === 'fav_icon' || actionItem.label === "shopping_cart" ? (<span className='text-white font-semibold text-sm bg-green-600 rounded-full h-5 w-5 ml-[-27px] mb-[-30px]'>
+                      0
+                    </span>) : null
                   }
                   {actionItem.role === 'login' && (
                     <p className="hidden xl:inline-flex whitespace-nowrap text-md font-extrabold text-black">{actionItem.label}</p>

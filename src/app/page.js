@@ -82,7 +82,6 @@ const Home = () => {
 
             <div className='flex max-lg:flex-col max-lg:items-center'>
                 <div className='w-3/4 cursor-pointer'>
-
                     <Carousel_home />
                 </div>
                 <h1>Hellow World</h1>

@@ -6,7 +6,7 @@ import { SfRating } from '@storefront-ui/react';
 
 import CountdownTimer from "@/Components/Counter"
 
-const targetDate = '2024-01-25T23:45:59'; // Replace this with your target date
+const targetDate = '2024-05-25T23:45:59'; // Replace this with your target date
 
 export function Carousel_home() {
     var items = [
@@ -44,7 +44,7 @@ export function Carousel_home() {
 
 function Item(props) {
     return (
-        <Paper className='flex justify-around max-lg:flex-col pb-5'>
+        <div className='flex justify-around max-lg:flex-col pb-5'>
             <Box>
                 <Image src={props.item.image} width={500} height={500} className = "  object-fill"/>
             </Box>
@@ -70,6 +70,6 @@ function Item(props) {
                     
                 </div>
             </Box>
-        </Paper>
+        </div>
     )
 }

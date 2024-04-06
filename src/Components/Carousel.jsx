@@ -30,7 +30,7 @@ export function Carousels() {
 function Item(props) {
     return (
         <Paper className='relative'>
-            <Image src={props.item.image} width="1024" height="350" className='w-full 	' />
+            <Image src={props.item.image} width="1024" height="350" className='w-full' />
             <div className='absolute top-1/4 left-1/3 text-4xl font-extrabold max-sm:text-lg flex flex-col gap-5 max-lg:gap-0 justify-end filter backdrop-blur-lg'>
                 <h2>{props.item.name}</h2>
                 <p className='text-red-600'>{props.item.description}</p>

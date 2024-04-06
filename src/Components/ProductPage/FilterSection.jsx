@@ -1,9 +1,9 @@
 import { useSearchParams, useRouter } from 'next/navigation';
 import React, { useEffect, useState } from 'react'
 
-const colors = ["Red", "Green", "Blue", "Black", "Brown", "Pink"];
+// const colors = ["Red", "Green", "Blue", "Black", "Brown", "Pink"];
 const categeories = ["All","MilkAndCreams","Fruits","Vegetables","Ocean Food","ButtersAndEggs","LampsAndLighting","FreshMeats","SeedsAndSpices"]
-const sizes = ["S", "M", "L", "XL"];
+// const sizes = ["S", "M", "L", "XL"];
 const sortingOrder = ["Newest", "Price Low - High", "Price High - Low"];
 
 const filterOptions = [
@@ -17,16 +17,6 @@ const filterOptions = [
         title: "Categories",
         options: categeories,
         type: "radio"
-    }, {
-        id: "colors",
-        title: "Colors",
-        options: colors,
-        type: "checkbox"
-    }, {
-        id: "sizes",
-        title: "Sizes",
-        options: sizes,
-        type: "checkbox"
     },
 ];
 
