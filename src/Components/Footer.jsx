@@ -189,7 +189,7 @@ import {
           {contactOptions.map(({ label, icon: Icon, link, details }) => (
             <div className="mx-auto my-4 text-center" key={label}>
               <Icon />
-              <p className="py-1 my-2 font-medium typography-text-lg font-body">
+              <div className="py-1 my-2 font-medium typography-text-lg font-body">
                 <SfLink
                   variant="secondary"
                   className="no-underline text-neutral-600 hover:underline hover:!text-neutral-900 active:underline active:!text-neutral-900"
@@ -197,7 +197,7 @@ import {
                 >
                   {label}
                 </SfLink>
-              </p>
+              </div>
               {details?.map((option) => (
                 <p className="leading-5 typography-text-sm text-neutral-600 font-body" key={option}>
                   {option}

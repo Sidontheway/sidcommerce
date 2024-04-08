@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import React from 'react';
 import Carousel from 'react-material-ui-carousel'
-import { Paper, Button } from '@mui/material'
+import { Box, Button } from '@mui/material'
 
 export function Carousels() {
     var items = [
@@ -29,7 +29,7 @@ export function Carousels() {
 
 function Item(props) {
     return (
-        <Paper className='relative'>
+        <Box className='relative'>
             <Image src={props.item.image} width="1024" height="350" className='w-full' />
             <div className='absolute top-1/4 left-1/3 text-4xl font-extrabold max-sm:text-lg flex flex-col gap-5 max-lg:gap-0 justify-end filter backdrop-blur-lg'>
                 <h2>{props.item.name}</h2>
@@ -39,6 +39,6 @@ function Item(props) {
                     Shop Now
                 </Button>
             </div>
-        </Paper>
+        </Box>
     )
 }
