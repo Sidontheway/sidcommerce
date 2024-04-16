@@ -20,7 +20,7 @@ const Banner = () => {
             details.map((item)=>{
                 return(
                     <div className='relative'>
-                        <Image src = {item.image} height={800} width={600} className='cursor-pointer'/>
+                        <Image src = {item.image} height={800} width={600} className='cursor-pointer' alt = "Banner Image"/>
                         <div className=' absolute top-0 left-0 m-5 p-2 max-lg:relative max-lg:bg-slate-100 max-lg:m-0 max-lg:p-5'>
                             <h1 className='text-xl font-bold w-3/4 mb-2'>{item.title}</h1>
                             <p> <span className = "text-red-600 font-bold text-md">{item.discount}</span> OFF </p>

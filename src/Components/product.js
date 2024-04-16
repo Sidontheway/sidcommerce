@@ -12,7 +12,7 @@ export const products = [
     },
     {
         id:2,
-        title:"Item 2",
+        title:"100% Organic Orange",
         desc:"This is a description text.",
         price:180,
         colors:["black"],
@@ -23,7 +23,7 @@ export const products = [
     },
     {
         id:3,
-        title:"Men White And Blue T-Shirt",
+        title:"100% Organic StrawBerry",
         desc:"This is a description text.",
         price:1050,
         colors:["all"],

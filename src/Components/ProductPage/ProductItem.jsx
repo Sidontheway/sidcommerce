@@ -62,6 +62,7 @@ export default function ProductItem(props) {
                         src={props.details.image}
                         width={400}
                         height={350}
+                        alt = "Product Image"
                     />
                 </SfLink>
                 <div

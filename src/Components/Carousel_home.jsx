@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import React from 'react';
 import Carousel from 'react-material-ui-carousel'
-import { Paper, Box, LinearProgress } from '@mui/material'
+import {Box, LinearProgress } from '@mui/material'
 import { SfRating } from '@storefront-ui/react';
 
 import CountdownTimer from "@/Components/Counter"
@@ -46,7 +46,7 @@ function Item(props) {
     return (
         <div className='flex justify-around max-lg:flex-col pb-5'>
             <Box>
-                <Image src={props.item.image} width={500} height={500} className = "  object-fill"/>
+                <Image src={props.item.image} width={500} height={500} className = "  object-fill" alt = "Image of Best products"/>
             </Box>
 
             <Box className=" w-1/3 max-xl:w-auto ">

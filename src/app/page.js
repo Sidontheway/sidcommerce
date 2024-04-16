@@ -57,6 +57,7 @@ const details_testimonials = [
 
 ]
 const Home = () => {
+ 
     return (
         <div>
             <Carousels />
@@ -84,11 +85,11 @@ const Home = () => {
                 <div className='w-3/4 cursor-pointer'>
                     <Carousel_home />
                 </div>
-                <h1>Hellow World</h1>
+                <div>Hellow World</div>
             </div>
 
             {/* NEW ARRIVALS SECTION */}
-            <div>
+             <div>
                 <h1 className='text-xl font-semibold m-5'>New Arrivals</h1>
                 <hr className='h-1 w-[95%] text-gray-500 mr-5 ml-5 ' />
                 <div className='grid grid-cols-4  max-xl:grid-cols-3 max-lg:grid-cols-2 max-sm:grid-cols-1 m-10 justify-items-center gap-8'>
@@ -98,7 +99,7 @@ const Home = () => {
                         })
                     }
                 </div>
-            </div>
+            </div> 
 
             <h1 className='text-xl font-bold m-10 mb-5'>What Our Clients Say</h1>
             <hr className='h-1 w-[95%] text-gray-500 mr-5 ml-5 ' />
@@ -116,6 +117,6 @@ const Home = () => {
 
         </div>
     )
-}
+ }
 
 export default Home;

@@ -13,7 +13,7 @@ const Testimonial = (props) => {
                             <p class="text-2xl font-medium text-gray-900 ">"{props.details.feedbacks}"</p>
                         </blockquote>
                         <figcaption class="flex items-center justify-center mt-6 space-x-3">
-                            <img class="w-6 h-6 rounded-full" src={props.details.image}/>
+                            <img class="w-6 h-6 rounded-full" src={props.details.image} alt = "profile_img"/>
                                 <div class="flex items-center divide-x-2 divide-gray-500 dark:divide-gray-700">
                                     <div class="pr-3 font-medium text-gray-900 ">{props.details.name}</div>
                                     <div class="pl-3 text-sm font-light text-gray-500 ">{props.details.position}</div>
